@@ -1,6 +1,0 @@
-ru\netology\springbootdemo\config\JavaConfig.class
-ru\netology\springbootdemo\SpringBootDemoApplication.class
-ru\netology\springbootdemo\profile\ProductionProfile.class
-ru\netology\springbootdemo\profile\DevProfile.class
-ru\netology\springbootdemo\profile\SystemProfile.class
-ru\netology\springbootdemo\controller\ProfileController.class
