@@ -1,0 +1,10 @@
+target/
+.idea/
+.gigaide/
+*.iml
+src/test/resources/docker-java.properties
+
+
+logs/
+
+

@@ -1,0 +1,11 @@
+# Filebeat читает JSON-логи приложения и отправляет их в Logstash.
+filebeat.inputs:
+  - type: filestream
+    id: spring-app-logs
+    paths:
+      - /logs/app.log          # папка ./logs проекта, смонтированная в контейнер
+
+output.logstash:
+  hosts: ["logstash:5044"]
+
+logging.level: info
