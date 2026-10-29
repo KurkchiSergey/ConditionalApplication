@@ -3,7 +3,7 @@ filebeat.inputs:
   - type: filestream
     id: spring-app-logs
     paths:
-      - /logs/app.log          # папка ./logs проекта, смонтированная в контейнер
+      - /logs/app.log        
 
 output.logstash:
   hosts: ["logstash:5044"]
