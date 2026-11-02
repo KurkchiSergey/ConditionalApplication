@@ -1,0 +1,24 @@
+groups:
+  - name: app-alerts
+    rules:
+
+      # Основной алерт: куча (heap) JVM заняла больше 250 МБ.
+      # Приложение само набирает память до ~300 МБ (MemoryConsumer)
+      - alert: HighHeapMemoryUsage
+        expr: sum(jvm_memory_used_bytes{area="heap"}) > 250 * 1024 * 1024
+        for: 15s
+        labels:
+          severity: warning
+        annotations:
+          summary: "Высокое потребление памяти в приложении memory-app"
+          description: "Использовано {{ $value | humanize1024 }}Б кучи (порог 250 МиБ)."
+
+      # Приложение недоступно для Prometheus
+      - alert: AppDown
+        expr: up{job="spring-app"} == 0
+        for: 15s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Приложение недоступно"
+          description: "Prometheus не может получить метрики с {{ $labels.instance }}."
